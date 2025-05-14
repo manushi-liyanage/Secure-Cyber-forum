@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #666;
+}
+
+.full-page-create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+   
+}
+
+.main-section-create{
+    
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 75%;
+    max-width: 1000px;
+    height:600px;
+   
+}
+
+.create-form-section{
+    flex: 1;
+    padding: 2rem 3rem 2rem 2rem;
+    
+    background-color: white;
+    border-radius: 12px;
+    width: 50%;
+   
+}
+
+.create-form-section > h1{
+    color: black;
+}
+
+.first-row{
+    display: flex;
+}
+.second-row{
+    display: flex;
+}
+.create-form{
+    width: 100%;
+}
+
+.create-form > div{
+    margin-bottom: 1rem;
+}
+.all-duo{
+    display: flex;
+    
+    
+}
+.title-category-duo > div{
+    margin-bottom: 1rem;
+    
+}
+
+.comapny-email-duo > div{
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    
+}
+
+.create-title-input,.create-email{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+}
+.select-wrapper {
+    position: relative;
+    width: 90%;
+}
+
+.select-wrapper::after {
+    content: "▼"; 
+    position: absolute;
+    right: 1rem;
+    top: 60%;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    color: #ccc; 
+    font-size: 0.75rem;
+}
+
+#select-category{
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    background-color:white;
+    color: #666;
+    cursor: pointer;
+}
+
+
+
+#select-company{
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    background-color: white;
+    color: #666;
+    cursor: pointer;
+}
+
+
+
+textarea{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: black;
+}
+#file-image-video {
+    display: none; 
+}
+
+.custom-file-btn {
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #666;
+    background-color: white; 
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.custom-file-btn:hover {
+    background-color: #ccc;
+    color: gray;
+}
+
+#preview{
+    width: 50%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color:rgb(122, 119, 119);
+    
+    background-color:white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    margin-left: 0.75rem;
+}
+
+#preview:hover{
+    background-color: #ccc;
+    border: none;
+}
+
+#submit-btn{
+    width: 40%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color:white;
+    background-color:black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+#submit-btn:hover{
+    background-color:#ECBF0E;
+    color: black;
+}
+
+.create-preview-section{
+   
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-preview-section > img{
+    width: 70%;
+    
+    
+}
+
+
+@media (min-width: 768px) {
+    .create-form-section {
+      flex: 1 1 50%;
+    }
+
+    .create-preview-section {
+      flex: 1 1 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-section-create {
+      flex-direction: column;
+    }
+
+    .create-form-section,
+    .create-preview-section {
+      padding: 1rem;
+    }
+
+    .create-preview-section img {
+      width: 100%;
+    }
+
+    .create-form input,
+    .create-form select,
+    .create-form textarea {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+
+    .create-form button {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .create-form {
+      gap: 0.75rem;
+    }
+
+    .create-form label {
+      font-size: 0.85rem;
+    }
+
+    .create-form input,
+    .create-form select,
+    .create-form textarea {
+      font-size: 0.85rem;
+      padding: 0.4rem;
+    }
+
+    .create-form button {
+      font-size: 0.85rem;
+      padding: 0.4rem;
+    }
+  }
