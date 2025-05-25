@@ -11,20 +11,7 @@ export default function Home(){
         <>
          <Navbar/>
          <section className="bg-gray dark:bg-gray-900">
-          {/* <div className="flex justify-start items-center h-24 px-4 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-          <div className="relative flex items-center bg-gray dark:bg-gray-900 border-solid border-1 border-gray-500 pl-7 pr-7 pb-3 pt-3 rounded-2xl w-2/5 mb-2 mt-8 min-w"  >
-          <Search/>
-          <input 
-            type="text"
-            placeholder="Search News and blogs per your need.." 
-            className=" bg-gray dark:bg-gray-900 w-[100%] pl-3 font-thin text-gray-400"
-         />
-        
-         </div>
-  
-
-
-       </div>   */}
+          
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
                     <div className="lg:col-span-7 mb-6">
                         <div className="relative flex items-center bg-gray dark:bg-gray-900 border border-gray-500 pl-7 pr-7 pb-3 pt-3 rounded-2xl w-4/5 min-w-fit">

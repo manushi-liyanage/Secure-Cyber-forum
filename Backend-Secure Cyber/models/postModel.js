@@ -45,6 +45,16 @@ const postSchema = new Schema({
         enum : ['image' , 'video'],
         required:false,
     },
-})
+    status: {
+        type: String,
+        enum: ["pending", "approved", "rejected"],
+        default: "pending"
+    },
+    userId: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "User",
+       required: true
+  }
+}, { timestamps: true });
 
 module.exports = mongoose.model('PostCreation' ,postSchema )

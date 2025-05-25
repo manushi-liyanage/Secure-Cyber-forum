@@ -41,37 +41,7 @@ const navigate = useNavigate();
         }
     };
     return(
-        // <div className='full-page-signup'>
-        //     <div className='main-section-signup'>
-        //         <div className='image-section-signup'>
-        //            <img src='src/images/SignUP2.jpg' alt='signupimage' className="signUp-img"></img>
-        //         </div>
-        //         <div className='form-section-signup'>
-        //             <h1  className='SignUp-head'>Sign Up</h1>
-        //             <form className='SignupForm' onSubmit={handleSubmit}>
-        //                 <div>
-        //                     <label htmlfor='' className='lable-signup'>Enter Name</label>
-        //                     <input type='text' placeholder='Enter Name'  name="name" onChange={handleChange} required></input>
-        //                 </div>
-        //                 <div>
-        //                     <label htmlfor="" className='lable-signup'>Enter Email address</label>
-        //                     <input type='email' name="email" placeholder='Enter Email' onChange={handleChange} required></input>
-        //                 </div>
-        //                 <div>
-        //                     <label htmlfor='' className='lable-signup'>Enter Password</label>
-        //                     <input type='password' placeholder='Enter Password' name="password" onChange={handleChange} required></input>
-        //                 </div>
-        //                 <div>
-        //                    <button type='submit' id='submit'>Sign Up</button>
-        //                 </div>
-        //                 {message && <p>{message}</p>}
-        //                 <p className='account'>Already have an account? <Link to="/">Sign In</Link></p>
-
-
-        //             </form>
-        //         </div>
-        //     </div>
-        // </div>
+        
         <div className="flex justify-center items-center h-screen bg-black">
       <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden w-11/12 max-w-4xl h-[80vh]">
         
@@ -144,79 +114,3 @@ const navigate = useNavigate();
     )
 }
 
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import API_BASE_URL from "../config"; // Import API URL
-
-// export default function SignUp() {
-//     const navigate = useNavigate();
-//     const [formData, setFormData] = useState({
-//         name: "",
-//         email: "",
-//         password: "",
-//     });
-//     const [message, setMessage] = useState("");
-
-//     const handleChange = (e) => {
-//         setFormData({ ...formData, [e.target.name]: e.target.value });
-//     };
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         setMessage("");
-
-//         try {
-//             const response = await fetch(`${API_BASE_URL}/register`, {
-//                 method: "POST",
-//                 headers: { "Content-Type": "application/json" },
-//                 body: JSON.stringify(formData),
-//             });
-
-//             const data = await response.json();
-
-//             if (response.ok) {
-//                 setMessage("Registration successful! Check your email for verification.");
-//             } else {
-//                 setMessage(data.message || "Error registering user");
-//             }
-//         } catch (error) {
-//             console.error("Registration error:", error);
-//             setMessage("Server error. Please try again.");
-//         }
-//     };
-
-//     return (
-//         <div className="full-page-signup">
-//             <div className="main-section-signup">
-//                 <div className="image-section-signup">
-//                     <img src="/src/images/SignUP2.jpg" alt="signupimage" className="signUp-img" />
-//                 </div>
-//                 <div className="form-section-signup">
-//                     <h1 className="SignUp-head">Sign Up</h1>
-//                     <form className="SignupForm" onSubmit={handleSubmit}>
-//                         <div>
-//                             <label className="label-signup">Enter Name</label>
-//                             <input type="text" name="name" placeholder="Enter Name" required onChange={handleChange} />
-//                         </div>
-//                         <div>
-//                             <label className="label-signup">Enter Email address</label>
-//                             <input type="email" name="email" placeholder="Enter Email" required onChange={handleChange} />
-//                         </div>
-//                         <div>
-//                             <label className="label-signup">Enter Password</label>
-//                             <input type="password" name="password" placeholder="Enter Password" required onChange={handleChange} />
-//                         </div>
-//                         <div>
-//                             <button type="submit" id="submit">Sign Up</button>
-//                         </div>
-
-//                         {message && <p>{message}</p>}
-
-//                         <p className="account">Already have an account? <Link to="/">Sign In</Link></p>
-//                     </form>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }

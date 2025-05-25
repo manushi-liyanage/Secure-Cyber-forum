@@ -1,60 +1,4 @@
 
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-
-// export default function SignIn(){
-//     const navigate = useNavigate();
-    
-//     return(
-//         <div className='full-page'>
-//         <div className='main-section'>
-//             <div className='image-section'>
-//               <img src='src/images/SignUP2.jpg' alt='signInimage' className='signupImage' ></img>
-//             </div>
-//             <div className='form-section'>
-//             <h1 className='SignUP'>Sign In</h1>
-//             <form className='signup-form'>
-//                 <div >
-//                    <label htmlFor='' className='label-signUp'>Enter Email address</label>
-//                     <input type='email' placeholder='Enter Email' className='signinEmail' required></input>
-                    
-//                 </div>
-//                 <div >
-//                     <label htmlFor='' className='label-signUp'>Enter Password</label>
-//                     <input  id="password-input"type='password' placeholder=' Enter Password' required></input>
-                   
-//                 </div>
-               
-//                 <div className='check-main'>
-//                 <div className='checkbox-remember'>
-//                     <input type='checkbox' id='rememberMe'className='signinCheckbox'/>
-//                     <label htmlFor='rememberMe' className='remember-label'>Remember Me</label>
-//                 </div>
-//                 <div className='forgot-label'>
-//                     <p>
-//                         forgot your password? <a href="#"></a>
-//                     </p>
-//                 </div>
-//                 </div>
-//                 <div>
-//                     <button type='submit' id='submit'onClick={() => navigate('#')}>Sign In</button>
-//                 </div>
-                
-//             </form>
-//             <div className='divider'>Or , Login with</div>
-//             <button type='button' id='google'><img src="/src/images/google.png" alt='google-image'></img>Continue with Google</button>
-//             <p className='account'>Don't have an account? <Link to="/signup">Register</Link></p>
-            
-//             </div>
-            
-               
-
-//         </div>
-//         </div>
-//     )
-// }
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -100,49 +44,7 @@ export default function SignIn({ setUser }) {
     };
 
     return (
-        // <div className="full-page">
-        //     <div className="main-section">
-        //         <div className="image-section">
-        //             <img src="/src/images/SignUP2.jpg" alt="signInimage" className="signupImage" />
-        //         </div>
-        //         <div className="form-section">
-        //             <h1 className="SignUP">Sign In</h1>
-        //             <form className="signup-form" onSubmit={handleSubmit}>
-        //                 <div>
-        //                     <label className="label-signUp">Enter Email address</label>
-        //                     <input type="email" name="email" placeholder="Enter Email" className="signinEmail" required onChange={handleChange} />
-        //                 </div>
-        //                 <div>
-        //                     <label className="label-signUp">Enter Password</label>
-        //                     <input type="password" name="password" placeholder="Enter Password" id="password-input" required onChange={handleChange} />
-        //                 </div>
-
-        //                 <div className="check-main">
-        //                     <div className="checkbox-remember">
-        //                         <input type="checkbox" id="rememberMe" className="signinCheckbox" />
-        //                         <label htmlFor="rememberMe" className="remember-label">Remember Me</label>
-        //                     </div>
-        //                     <div className="forgot-label">
-        //                         <p>
-        //                              <a href="#">Forgot your password?</a>
-        //                         </p>                            </div>
-        //                 </div>
-
-        //                 <div>
-        //                     <button type="submit" id="submit">Sign In</button>
-        //                 </div>
-
-        //                 {message && <p>{message}</p>}
-
-        //             </form>
-        //             <div className="divider">Or, Login with</div>
-        //             <button type="button" id="google">
-        //                 <img src="/src/images/google.png" alt="google-image" /> Continue with Google
-        //             </button>
-        //             <p className="account">Don't have an account? <Link to="/signup">Register</Link></p>
-        //         </div>
-        //     </div>
-        // </div>
+  
         <div className="flex justify-center items-center min-h-screen bg-black">
         <div className="flex flex-row bg-white rounded-xl shadow-lg overflow-hidden w-11/12 max-w-4xl">
   
@@ -204,12 +106,7 @@ export default function SignIn({ setUser }) {
               Continue with Google
             </button>
   
-            {/* <p className="text-sm text-gray-700 mt-4">
-              Already have an account?{" "}
-              <a href="/signup" className="text-purple-700 hover:underline" >
-                Sign In
-              </a>
-            </p> */}
+           
   
           </div>
         </div>
