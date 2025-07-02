@@ -5,7 +5,7 @@ const postSchema = require('../models/postModel');
 // Get all posts (Admin or internal usage)
 const GetAllPosts = async (req, res) => {
     try {
-        const posts = await postSchema.find().populate("userId", "name email");
+        const posts = await postSchema.find({ status: "approved" }).populate("userId", "name email");
         res.status(200).json(posts);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -19,7 +19,7 @@ const CreatePost = async (req, res) => {
         companyEmail,
         description,
         company,
-        Category,
+        category,
         visualContent,
         visualContentType
     } = req.body;
@@ -30,7 +30,7 @@ const CreatePost = async (req, res) => {
             companyEmail,
             description,
             company,
-            Category,
+            category,
             visualContent,
             visualContentType,
             userId: req.user.userId, // Authenticated user
@@ -65,53 +65,120 @@ const GetpostById = async (req, res) => {
 };
 
 // Update post (User edits → goes back to pending)
+// const updatePost = async (req, res) => {
+//     const { id } = req.params;
+
+//     try {
+//         const updatedPost = await postSchema.findByIdAndUpdate(
+//             id,
+//             {
+//                 ...req.body,
+//                 status: "pending" // Post reverts to pending on edit
+//             },
+//             { new: true }
+//         );
+
+//         if (!updatedPost) {
+//             return res.status(404).json({ message: "Post not found" });
+//         }
+
+//         res.status(200).json({
+//             message: "Post updated and set to pending",
+//             post: updatedPost
+//         });
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// };
 const updatePost = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-        const updatedPost = await postSchema.findByIdAndUpdate(
-            id,
-            {
-                ...req.body,
-                status: "pending" // Post reverts to pending on edit
-            },
-            { new: true }
-        );
+  try {
+    const post = await postSchema.findById(id);
+    if (!post) return res.status(404).json({ message: "Post not found" });
 
-        if (!updatedPost) {
-            return res.status(404).json({ message: "Post not found" });
-        }
-
-        res.status(200).json({
-            message: "Post updated and set to pending",
-            post: updatedPost
-        });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+    // Check ownership
+    if (post.userId.toString() !== req.user.userId) {
+      return res.status(403).json({ message: "Unauthorized to edit this post" });
     }
+
+    const updatedPost = await postSchema.findByIdAndUpdate(
+      id,
+      {
+        ...req.body,
+        status: "pending",
+      },
+      { new: true }
+    );
+
+    res.status(200).json({
+      message: "Post updated and set to pending",
+      post: updatedPost,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
+
+
+
+
 
 // Delete post
+// const deletePost = async (req, res) => {
+//     const { id } = req.params;
+
+//     try {
+//         const deletedPost = await postSchema.findByIdAndDelete(id);
+
+//         if (!deletedPost) {
+//             return res.status(404).json({ message: "Post not found" });
+//         }
+
+//         res.status(200).json({ message: "Post deleted successfully" });
+//     } catch (error) {
+//         res.status(400).json({ message: error.message });
+//     }
+// };
+
+
 const deletePost = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-        const deletedPost = await postSchema.findByIdAndDelete(id);
+  try {
+    const post = await postSchema.findById(id);
+    if (!post) return res.status(404).json({ message: "Post not found" });
 
-        if (!deletedPost) {
-            return res.status(404).json({ message: "Post not found" });
-        }
-
-        res.status(200).json({ message: "Post deleted successfully" });
-    } catch (error) {
-        res.status(400).json({ message: error.message });
+    // Check ownership
+    if (post.userId.toString() !== req.user.userId) {
+      return res.status(403).json({ message: "Unauthorized to delete this post" });
     }
+
+    await postSchema.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
+
+
+//get posts created by the logged-in user
+const GetMyPosts = async (req, res) => {
+  try {
+    const posts = await postSchema.find({ userId: req.user.userId }).populate("userId", "name email");
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 module.exports = {
     CreatePost,
     GetAllPosts,
     GetpostById,
     updatePost,
-    deletePost
+    deletePost,
+    GetMyPosts
 };

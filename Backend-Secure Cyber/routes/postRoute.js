@@ -6,22 +6,30 @@ const {
   GetAllPosts,
   GetpostById,
   updatePost,
-  deletePost
+  deletePost,
+  GetMyPosts
 } = require('../controllers/postcontroller');
 
-// ✅ Create a new post (User)
-router.post('/', CreatePost);
+const requireAuth = require('../middleware/authMiddleware'); // 🔒 Import the auth middleware
 
-// ✅ Get all posts (Admin or internal usage)
+// ✅ Create a new post (User must be logged in)
+router.post('/', requireAuth, CreatePost);
+
+// ✅ Get all posts (Public or Admin/internal usage)
 router.get('/', GetAllPosts);
 
-// ✅ Get a single post by ID
+router.get('/my-posts', requireAuth, GetMyPosts);
+
+// ✅ Get a single post by ID (Public)
 router.get('/:id', GetpostById);
 
-// ✅ Update a post (User edits → status reset to pending)
-router.patch('/:id', updatePost);
+// ✅ Update a post (User must be logged in)
+router.patch('/:id', requireAuth, updatePost);
 
-// ✅ Delete a post (User or Admin)
-router.delete('/:id', deletePost);
+
+// ✅ Delete a post (User must be logged in)
+router.delete('/:id', requireAuth, deletePost);
+
+
 
 module.exports = router;

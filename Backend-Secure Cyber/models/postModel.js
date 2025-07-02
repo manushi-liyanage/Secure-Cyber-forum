@@ -26,7 +26,7 @@ const postSchema = new Schema({
                 "Other"
         ]
     },
-    Category :{
+    category :{
         type :String,
         required :true,
         enum : ["IT",
@@ -57,4 +57,4 @@ const postSchema = new Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PostCreation' ,postSchema )
+module.exports = mongoose.model('Post' ,postSchema );
